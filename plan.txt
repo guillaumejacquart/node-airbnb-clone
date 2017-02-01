@@ -1,0 +1,4 @@
+0 -Create arborescence (client / server)
+1 - Install vue webpack template
+2 - Install vue router
+3 - Créer le main.js
