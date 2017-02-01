@@ -41,7 +41,8 @@ module.exports = {
   plugins: [
 	new CopyWebpackPlugin([
 	  // {output}/file.txt
-	  { from: './client/index.html', to: './index.html' }
+	  { from: './client/index.html', to: './index.html' },
+	  { from: './client/assets', to: './assets' }
 	])
   ],
   resolve: {
