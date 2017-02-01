@@ -1,4 +1,18 @@
-0 -Create arborescence (client / server)
-1 - Install vue webpack template
-2 - Install vue router
-3 - Créer le main.js
+ - npm init
+ - npm install express, vue, vue-router, body-parser, cookie-parser, hbs, morgan
+ - npm install dependencies babel-core, babel-loader, css-loader, vue-template-compiler, vue-loader, webpack, copy-webpack-plugin
+ - Create arborescence
+	- app/
+	- bin/www
+	- routes/index.js
+	- views/error, layout, index
+	- app.js
+	- webpack.config.js
+ - Implements bin/www
+ - Implements app.js
+ - Implements routes/index.js
+ - Implements webpack.config.js
+ - Implements client/index.html
+ - Implements client/main.js
+ - Implements client/routes.js
+ - Implements client/components/Hello.vue
