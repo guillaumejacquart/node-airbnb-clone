@@ -2,14 +2,14 @@
 
   <div id="fh5co-testimonial">
     <div class="container">
-      <div class="row animate-box">
+      <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
           <h2>Happy Clients</h2>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4">
-          <div class="box-testimony animate-box">
+          <div class="box-testimony">
             <blockquote>
               <span class="quote"><span><i class="icon-quotes-right"></i></span></span>
               <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
@@ -21,7 +21,7 @@
 
         </div>
         <div class="col-md-4">
-          <div class="box-testimony animate-box">
+          <div class="box-testimony">
             <blockquote>
               <span class="quote"><span><i class="icon-quotes-right"></i></span></span>
               <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
@@ -32,7 +32,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="box-testimony animate-box">
+          <div class="box-testimony">
             <blockquote>
               <span class="quote"><span><i class="icon-quotes-right"></i></span></span>
               <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live

@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-sm-5 col-md-5">
               <!-- <a href="index.html" id="main-logo">Travel</a> -->
-              <div class="tabulation animate-box">
+              <div class="tabulation">
 
                 <!-- Tab panes -->
                 <div class="tab-content">

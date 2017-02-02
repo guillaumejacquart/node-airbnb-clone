@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="omb_login">
-      <h3 class="omb_authTitle">Login or
-        <router-link to="/signup">Sign up</router-link>
+      <h3 class="omb_authTitle"><router-link to="/login">Login</router-link> or
+        Sign up
       </h3>
       <div class="row omb_row-sm-offset-3 omb_socialButtons">
         <div class="col-xs-4 col-sm-2">
@@ -28,7 +28,7 @@
 
       <div class="row omb_row-sm-offset-3">
         <div class="col-xs-12 col-sm-6">
-          <form class="omb_loginForm" v-on:submit.prevent="login" autocomplete="off" method="POST">
+          <form class="omb_loginForm" v-on:submit.prevent="signup" autocomplete="off" method="POST">
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-user"></i></span>
               <input type="text" v-model="user.username" class="form-control" placeholder="email address">
@@ -39,24 +39,10 @@
               <span class="input-group-addon"><i class="icon-lock"></i></span>
               <input type="password" v-model="user.password" class="form-control" placeholder="Password">
             </div>
-            <span class="help-block">
-              <span v-if="error">{{error}}</span>
-            </span>
+            <span class="help-block">Password error</span>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
           </form>
-        </div>
-      </div>
-      <div class="row omb_row-sm-offset-3">
-        <div class="col-xs-12 col-sm-3">
-          <label class="checkbox">
-					<input type="checkbox" value="remember-me">Remember Me
-				</label>
-        </div>
-        <div class="col-xs-12 col-sm-3">
-          <p class="omb_forgotPwd">
-            <router-link to="/forgot-password">Forgot password?</router-link>
-          </p>
         </div>
       </div>
     </div>
@@ -64,26 +50,21 @@
 </template>
 
 <script>
-import auth from '../auth/auth'
-
 export default {
-  name: 'login',
+  name: 'signup',
   components: {
   },
   data () {
     return {
-      error: '',
       user: {
       }
     }
   },
   methods: {
-    login: function () {
-      this.$http.post('/api/token', this.user).then((response) => {
-        auth.loadUser();
-        this.$router.push('/');
+    signup: function () {
+      this.$http.post('/api/users', this.user).then((response) => {
+          console.log(response);
       }, (response) => {
-        this.error = response.body.message;
       });
     }
   }
