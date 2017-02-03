@@ -17,7 +17,7 @@
     "start": "node bin/www",
     "dev-server": "nodemon bin/www",
     "dev-client": "webpack --progress --colors --watch --config webpack.config.js",
-	"postinstall": "webpack"
+	"postinstall": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
