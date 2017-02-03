@@ -71,6 +71,8 @@
 </template>
 
 <script>
+import auth from '../auth/auth'
+
 export default {
   name: 'signup',
   components: {
