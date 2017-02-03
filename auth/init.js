@@ -17,8 +17,6 @@ var strategy = new JwtStrategy(jwt_options, (jwt_payload, next) => {
         if (!userDb) {
             next(null, false);
         }
-        delete userDb.password;
-        console.log(userDb);
         next(null, userDb);
     })
 });

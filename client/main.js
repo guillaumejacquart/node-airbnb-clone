@@ -4,6 +4,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import auth from './auth/auth.js'
 import Routes from './routes'
+import HeaderMenu from './components/Home/HeaderMenu.vue'
 
 Vue.use(VueRouter)
 Vue.use(require('vue-resource'));
@@ -29,5 +30,8 @@ auth.loadUser();
 
 /* eslint-disable no-new */
 new Vue({
-  router: Routes
+  router: Routes,
+  components: {
+	  'header-menu': HeaderMenu
+  }
 }).$mount('#app')

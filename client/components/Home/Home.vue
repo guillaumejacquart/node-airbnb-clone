@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div>	
     <search></search>
 
     <best-offers></best-offers>
@@ -14,11 +14,13 @@
 import Search from './Search.vue'
 import BestOffers from './BestOffers.vue'
 import Testimonies from './Testimonies.vue'
+import HeaderMenu from './HeaderMenu.vue'
 import FooterMenu from './FooterMenu.vue'
 
 export default {
   name: 'home',
   components: {
+    'header-menu': HeaderMenu,
     'search': Search,
     'best-offers': BestOffers,
     'testimonies': Testimonies,
@@ -26,7 +28,7 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      user: null
     }
   }
 }

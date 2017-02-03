@@ -8,7 +8,6 @@ const user = require('../models/user')
 
 /* GET home page. */
 router.post('/', function (req, res, next) {
-    console.log(req.body)
     user.findOne({
         where: {
             username: req.body.username

@@ -351,18 +351,13 @@ figure {
 }
 
 #fh5co-header-section {
+  position: fixed;
   padding: 0;
-  position: relative;
   left: 0;
   width: 100%;
   z-index: 1022;
   background: #fff;
-}
-
-.nav-header {
-  position: relative;
-  float: left;
-  width: 100%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5)
 }
 
 #fh5co-logo {
@@ -400,7 +395,7 @@ figure {
   z-index: 2;
   display: block;
   float: right;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 #fh5co-menu-wrap .sf-menu a {
   padding: 1em .75em;
@@ -528,6 +523,10 @@ figure {
 }
 #fh5co-primary-menu .fh5co-sub-menu a:hover {
   color: #F78536 !important;
+}
+
+#app-inner {
+	padding-top: 95px;
 }
 
 .tabulation {
