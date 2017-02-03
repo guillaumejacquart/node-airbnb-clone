@@ -50,7 +50,9 @@ import moment from 'moment'
 import _ from 'lodash'
 
 var user = auth.user;
-user.birthdate = moment(user.birthdate).format("YYYY-MM-DD");
+if(user && user.birthdate){
+	user.birthdate = moment(user.birthdate).format("YYYY-MM-DD");
+}
 
 export default {
   name: 'profile',
