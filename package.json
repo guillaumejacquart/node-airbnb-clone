@@ -17,14 +17,16 @@
     "start": "node bin/www",
     "dev-server": "nodemon bin/www",
     "dev-client": "webpack --progress --colors --watch --config webpack.config.js",
-	"postinstall": "webpack --config webpack.config.js"
+    "postinstall": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.16.0",
+    "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "hbs": "^4.0.1",
+    "jquery": "^3.1.1",
     "jsonwebtoken": "^7.2.1",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",

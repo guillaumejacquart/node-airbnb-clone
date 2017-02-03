@@ -8,7 +8,11 @@ const user = require('../models/user')
 
 /* GET home page. */
 router.post('/', function (req, res, next) {
-    user.findById(req.body.id).then(function (userDb) {
+    user.findOne({
+        where: {
+            username: req.body.username
+        }
+    }).then(function (userDb) {
         if (userDb) {
             return res.status(400).json({ message: "User already exists" })
         }

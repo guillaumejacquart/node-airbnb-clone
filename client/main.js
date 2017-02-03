@@ -5,6 +5,8 @@ import VueRouter from 'vue-router'
 import auth from './auth/auth.js'
 import Routes from './routes'
 import HeaderMenu from './components/Home/HeaderMenu.vue'
+import Bootstrap from 'bootstrap'
+import jQuery from 'jquery'
 
 Vue.use(VueRouter)
 Vue.use(require('vue-resource'));

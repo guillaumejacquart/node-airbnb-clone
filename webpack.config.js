@@ -43,7 +43,11 @@ module.exports = {
 	  // {output}/file.txt
 	  { from: './client/index.html', to: './index.html' },
 	  { from: './client/assets', to: './assets' }
-	])
+	]),
+	new webpack.ProvidePlugin({
+		$: "jquery",
+		jQuery: "jquery"
+	})
   ],
   resolve: {
     alias: {

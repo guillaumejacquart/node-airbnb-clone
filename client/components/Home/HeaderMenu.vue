@@ -15,7 +15,7 @@
 			  <li v-if="user">
 			    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">{{user.firstname}} <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				  <li><router-link to="/profile">Update profile</router-link></li>
+				  <li><router-link to="/account">My account</router-link></li>
 				  <li><a href="#" v-on:click="logout">Logout</a></li>
 				</ul>
 			  </li>
