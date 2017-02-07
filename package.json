@@ -25,6 +25,9 @@
     "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
+    "express-validator": "^3.1.2",
+    "google-maps": "^3.2.1",
+    "googlemaps-js-rich-marker": "^1.0.2",
     "hbs": "^4.0.1",
     "jquery": "^3.1.1",
     "jsonwebtoken": "^7.2.1",
@@ -37,8 +40,10 @@
     "sequelize": "^3.30.1",
     "sqlite3": "^3.1.8",
     "vue": "^2.1.0",
+    "vue-gmaps": "^0.2.1",
     "vue-resource": "^1.1.2",
-    "vue-router": "^2.2.0"
+    "vue-router": "^2.2.0",
+    "vuex": "^2.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",

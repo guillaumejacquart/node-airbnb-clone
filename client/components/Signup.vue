@@ -31,36 +31,36 @@
           <form class="omb_loginForm" v-on:submit.prevent="signup" autocomplete="off" method="POST">
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-user"></i></span>
-              <input type="email" v-model="user.username" class="form-control" placeholder="email address">
+              <input required type="email" v-model="user.username" class="form-control" placeholder="email address">
             </div>
             <span class="help-block"></span>
 
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-lock"></i></span>
-              <input type="password" v-model="user.password" class="form-control" placeholder="Password">
+              <input required type="password" v-model="user.password" class="form-control" placeholder="Password">
             </div>
             <span class="help-block"></span>
 			
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-user"></i></span>
-              <input type="text" v-model="user.firstname" class="form-control" placeholder="First name">
+              <input required type="text" v-model="user.firstname" class="form-control" placeholder="First name">
             </div>
             <span class="help-block"></span>
 			
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-user"></i></span>
-              <input type="text" v-model="user.lastname" class="form-control" placeholder="Last name">
+              <input required type="text" v-model="user.lastname" class="form-control" placeholder="Last name">
             </div>
             <span class="help-block"></span>
 			
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-user"></i></span>
-              <input type="date" v-model="user.birthdate" class="form-control" placeholder="Bithdate">
+              <input required type="date" v-model="user.birthdate" class="form-control" placeholder="Bithdate">
             </div>
+            <span class="help-block"></span>
 			
-            <span class="help-block">
-              <span v-if="error">{{error}}</span>
-            </span>
+            <errors :errors="errors">
+            </errors>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
           </form>
@@ -71,15 +71,13 @@
 </template>
 
 <script>
-import auth from '../auth/auth'
+import auth from '../services/auth'
 
 export default {
   name: 'signup',
-  components: {
-  },
   data () {
     return {
-      error: '',
+      errors: '',
       user: {
       }
     }
@@ -90,6 +88,7 @@ export default {
         auth.loadUser();
         this.$router.push('/');
       }, (response) => {
+        this.errors = response.body;
       });
     }
   }

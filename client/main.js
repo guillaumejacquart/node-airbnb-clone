@@ -1,15 +1,21 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import auth from './auth/auth.js'
-import Routes from './routes'
-import HeaderMenu from './components/Home/HeaderMenu.vue'
 import Bootstrap from 'bootstrap'
 import jQuery from 'jquery'
+import auth from './services/auth.js'
+import Routes from './routes'
+import store from './services/store'
+import HeaderMenu from './components/Home/HeaderMenu.vue'
+import Errors from './components/Common/Errors.vue'
 
 Vue.use(VueRouter)
 Vue.use(require('vue-resource'));
+
+// Component registration
+Vue.component('errors', Errors)
 
 Vue.http.interceptors.push(function (request, next) {
     //Add JWT to all requests
@@ -33,6 +39,7 @@ auth.loadUser();
 /* eslint-disable no-new */
 new Vue({
   router: Routes,
+  store: store,
   components: {
 	  'header-menu': HeaderMenu
   }

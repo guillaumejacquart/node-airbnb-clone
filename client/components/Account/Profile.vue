@@ -13,7 +13,7 @@
             </div>
 
             <div class="input-group">
-              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <span class="input-group-addon"><i class="icon-envelop"></i></span>
               <input disabled type="email" v-model="user.username" class="form-control" placeholder="email address">
             </div>
             <span class="help-block"></span>
@@ -31,7 +31,7 @@
             <span class="help-block"></span>
 
             <div class="input-group">
-              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <span class="input-group-addon"><i class="icon-calendar"></i></span>
               <input type="date" v-model="user.birthdate" class="form-control" placeholder="Birthdate">
             </div>
             <span class="help-block"></span>
@@ -53,13 +53,13 @@
             </div>
 
             <div class="input-group">
-              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <span class="input-group-addon"><i class="icon-key"></i></span>
               <input type="text" v-model="user.oldPassword" class="form-control" placeholder="Old password">
             </div>
             <span class="help-block"></span>
 
             <div class="input-group">
-              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <span class="input-group-addon"><i class="icon-key"></i></span>
               <input type="text" v-model="user.newPassword" class="form-control" placeholder="New password">
             </div>
             <span class="help-block"></span>
@@ -73,7 +73,7 @@
 </template>
 
 <script>
-  import auth from '../../auth/auth'
+  import auth from '../../services/auth'
   import moment from 'moment'
   import _ from 'lodash'
 
