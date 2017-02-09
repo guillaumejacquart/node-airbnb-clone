@@ -12,8 +12,6 @@ var User = sequelize.define('user', {
   birthdate: {type: Sequelize.DATE, allowNull: false}
 });
 
-sequelize.sync({
-  force: true
-});
+sequelize.sync();
 
 module.exports = User;

@@ -34,7 +34,7 @@
     }),
     methods: {
       mouseOver: function(o){
-        this.$store.commit('setOfferSelected', o.id);
+        this.$store.commit('setOfferSelected', o);
       },
       mouseLeave: function(o){
         this.$store.commit('setOfferUnselected', o.id);

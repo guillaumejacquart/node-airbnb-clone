@@ -48,4 +48,8 @@ router.post('/password', passport.authenticate('jwt', { session: false }), funct
     })
 })
 
+router.get('/properties', passport.authenticate('jwt', { session: false }), function (req, res, next) {
+    res.json(req.user);
+})
+
 module.exports = router
