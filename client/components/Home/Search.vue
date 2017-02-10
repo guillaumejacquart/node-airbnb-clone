@@ -16,19 +16,20 @@
                         <div class="col-xxs-12 col-xs-12 mt">
                           <div class="input-field">
                             <label for="from">Place:</label>
-                            <input required type="text" class="form-control" v-model="place.searchPlace" id="from-city" placeholder="Los Angeles, USA" v-gmaps-searchbox="place" />
+                            <input required type="text" class="form-control" v-model="place.searchPlace" id="from-city" placeholder="Los Angeles, USA"
+                              v-gmaps-searchbox:location="place" />
                           </div>
                         </div>
                         <div class="col-xxs-12 col-xs-6 mt alternate">
                           <div class="input-field">
                             <label for="date-start">Arrival:</label>
-                            <input required type="date" class="form-control" v-model="search.from" id="date-start" placeholder="mm/dd/yyyy" />
+                            <el-date-picker v-model="search.from" type="date"></el-date-picker>
                           </div>
                         </div>
                         <div class="col-xxs-12 col-xs-6 mt alternate">
                           <div class="input-field">
                             <label for="date-end">Check Out:</label>
-                            <input required type="date" class="form-control" v-model="search.to" id="date-end" placeholder="mm/dd/yyyy" />
+                            <el-date-picker v-model="search.to" type="date"></el-date-picker>
                           </div>
                         </div>
                         <div class="col-xxs-12 col-xs-12 mt">
@@ -63,31 +64,32 @@
 </template>
 
 <script>
-  import VueGmaps from 'vue-gmaps'
-  import Vue from 'vue'
-  
-  Vue.use(VueGmaps, {
-    key: 'AIzaSyBBGLst2_5aTRSKZRw0RglUN0dX_Qtao60'
-  })
-
   export default {
     name: 'search',
     data() {
       return {
-        search: {},
-        place: {},
+        search: {
+          from: '',
+          to: ''
+        },
+        place: {
+          searchPlace: '',
+          location: {}
+        },
         guestNumber: []
       }
     },
     methods: {
       searchResults: function () {
         var params = this.search;
-        params.place_id = this.place.place.place_id;
+        params.place_id = this.place.location.place_id;
+        params.from = params.from.toISOString();
+        params.to = params.to.toISOString();
         this.$router.push({ path: '/search', query: params })
       }
     },
-    created: function(){
-      for(var i=1;i<15;i++){
+    created: function () {
+      for (var i = 1; i < 15; i++) {
         this.guestNumber.push(i);
       }
     }

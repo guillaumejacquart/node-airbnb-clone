@@ -1,10 +1,13 @@
 <template>
   <map-results :center="center" :markers="markers" :zoom="zoom" v-on:loaded="mapLoaded">
     <map-overlay v-for="o in overlays" :overlay="o" :map="map">
-      <div class="map-tooltip">{{o.title}}</div>
-      <div class="map-dialog">
-        <img v-bind:src="o.image" height="50" />
-        <div class="map-inner-dialog">{{o.description}}</div>
+      <div slot="marker">
+        {{o.title}}
+      </div>
+        <div slot="tooltip">
+          <img v-bind:src="o.image" height="50" />
+          <div class="map-inner-dialog">{{o.description}}</div>
+        </div>
       </div>
     </map-overlay>
   </map-results>
@@ -41,7 +44,7 @@
           };
         });
       },
-      offers: function(){
+      offers: function () {
         return this.$store.state.offers
       }
     },
@@ -58,4 +61,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>

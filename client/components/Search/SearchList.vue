@@ -2,15 +2,7 @@
 
   <div>
     <div v-if="offers.length">
-      <div v-for="o in offers" class="offer col-sm-12 col-md-6" v-on:mouseover="() => mouseOver(o)" v-on:mouseleave="() => mouseLeave(o)">
-        <div class="offer-picture" v-bind:style="{ backgroundImage: 'url(' + o.image + ')' }"></div>
-        <div class="offer-details">
-            <div class="offer-price">{{o.price}}</div>
-            <div class="offer-title">{{o.title}}</div>
-            <div class="offer-infos">
-            </div>
-        </div>
-      </div>
+      <offer v-bind:offer="o" v-for="o in offers"></offer>
     </div>
     <div v-if="!offers.length">
       No offers matching filters
@@ -21,9 +13,12 @@
 
 <script>
   import { mapState } from 'vuex'
+  import Offer from './Offer.vue'
+
   export default {
-    name: 'search-results',
+    name: 'search-list',
     components: {
+      'offer': Offer
     },
     data() {
       return {
@@ -33,12 +28,6 @@
       offers: state => state.offers
     }),
     methods: {
-      mouseOver: function(o){
-        this.$store.commit('setOfferSelected', o);
-      },
-      mouseLeave: function(o){
-        this.$store.commit('setOfferUnselected', o.id);
-      }
     },
     created: function () {
     }

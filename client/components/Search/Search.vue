@@ -7,12 +7,10 @@
         <div class="col col-sm-10">
           <div class="form-inline">
             <div class="input-group input-group-sm">
-              <span class="input-group-addon"><i class="icon-calendar"></i></span>
-              <input v-on:blur="searchOffers" v-model="query_search.from" type="date" class="form-control input-sm" placeholder="Arrival">
+              <el-date-picker size="small" v-model="query_search.from" type="date" change="searchOffers"></el-date-picker>
             </div>
             <div class="input-group input-group-sm">
-              <span class="input-group-addon"><i class="icon-calendar"></i></span>
-              <input v-on:blur="searchOffers" v-model="query_search.to" type="date" class="form-control input-sm" placeholder="Check out">
+              <el-date-picker size="small" v-model="query_search.to" type="date" change="searchOffers"></el-date-picker>
             </div>
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="icon-users"></i></span>

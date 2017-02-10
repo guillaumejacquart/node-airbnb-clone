@@ -1,13 +1,17 @@
 <template>
 
   <div class="map-overlay">
-    <slot></slot>
+    <div class="map-tooltip">
+      <slot name="marker"></slot>
+    </div>
+    <div class="map-dialog">
+      <slot name="tooltip"></slot>
+    </div>
   </div>
 
 </template>
 
 <script>
-  import GoogleMapsLoader from 'google-maps';
   import RichMarker from 'googlemaps-js-rich-marker';
   import $ from 'jquery';
   import _ from 'lodash';
@@ -26,21 +30,16 @@
       }
     },
     methods: {
-      load: function (map) {
-        GoogleMapsLoader.load((google) => {
-
-        });
-      },
       setOverlay(overlay, oldOverlay) {
         var elem = $(this.$el);
         var latlng = overlay.position;
 
         if (oldOverlay && overlay.id === oldOverlay.id) {
-            var tooltipContent = elem.find('.map-tooltip');
-            tooltipContent.toggleClass('selected', overlay.selected)
-            this.marker.setContent(tooltipContent[0].outerHTML)
+          var tooltipContent = elem.find('.map-tooltip');
+          tooltipContent.toggleClass('selected', overlay.selected)
+          this.marker.setContent(tooltipContent[0].outerHTML)
 
-            return;
+          return;
         }
 
         if (this.marker) {
@@ -74,11 +73,17 @@
           infoWindows.push(this.infoWindow);
         });
 
+        google.maps.event.addListener(marker, 'mouseover', () => {
+          this.$store.commit('setOfferSelected', overlay.id);
+        });
+        google.maps.event.addListener(marker, 'mouseout', () => {
+          this.$store.commit('setOfferUnselected', overlay.id);
+        });
+
         this.marker = marker;
       }
     },
     created: function () {
-      this.$on('map-loaded', this.load);
     },
     watch: {
       map: function (map) {
@@ -93,13 +98,14 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>  
+<style scoped>
   .map-tooltip {
     background-color: red;
     color: white;
     padding: 5px;
+    pointer-events: none;
   }
-
+  
   .map-tooltip.selected {
     background-color: green;
   }
