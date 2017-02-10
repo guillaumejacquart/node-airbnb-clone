@@ -2,7 +2,7 @@
 
   <div>
     <div v-if="offers.length">
-      <offer v-bind:offer="o" v-for="o in offers"></offer>
+      <offer-thumbnail v-bind:offer="o" v-for="o in offers" :key="o.id" :mouseover="() => mouseOver(o)" :mouseleave="() => mouseLeave(o)"></offer>
     </div>
     <div v-if="!offers.length">
       No offers matching filters
@@ -13,24 +13,26 @@
 
 <script>
   import { mapState } from 'vuex'
-  import Offer from './Offer.vue'
+  import Offer from './OfferThumbnail.vue'
 
   export default {
     name: 'search-list',
+	props: ['offers'],
     components: {
-      'offer': Offer
+      'offer-thumbnail': Offer
     },
-    data() {
-      return {
+    methods: {	
+      mouseOver: function(o){
+        this.$store.commit('setOfferSelected', o.id);
+      },
+      mouseLeave: function(o){
+        this.$store.commit('setOfferUnselected', o.id);
       }
     },
-    computed: mapState({
-      offers: state => state.offers
-    }),
-    methods: {
-    },
     created: function () {
-    }
+    },
+	watch:{
+	}
   }
 
 </script>

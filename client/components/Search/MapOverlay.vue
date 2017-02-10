@@ -34,9 +34,9 @@
         var elem = $(this.$el);
         var latlng = overlay.position;
 
-        if (oldOverlay && overlay.id === oldOverlay.id) {
+        if (oldOverlay && overlay.id === oldOverlay.id && this.marker) {
           var tooltipContent = elem.find('.map-tooltip');
-          tooltipContent.toggleClass('selected', overlay.selected)
+          tooltipContent.toggleClass('selected', typeof(overlay.selected) !== 'undefined' && overlay.selected)
           this.marker.setContent(tooltipContent[0].outerHTML)
 
           return;

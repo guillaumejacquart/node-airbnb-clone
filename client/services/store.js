@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        offers: []
+        offers: [],
+		map: null
     },
     mutations: {
         setOffers(state, offers) {
@@ -38,7 +39,10 @@ const store = new Vuex.Store({
             });
 
             Vue.set(state.offers, indexSelected, offerSelected);
-        }
+        },
+		setMap(state, map){
+			state.map = map;
+		}
     }
 })
 

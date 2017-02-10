@@ -28,11 +28,9 @@
           center: this.center,
           zoom: this.zoom
         });
-        this.$emit('loaded', map);
+        this.$store.commit('setMap', map);
       });
-    },
-    watch: {
-    },
+    }
   };
 
 </script>

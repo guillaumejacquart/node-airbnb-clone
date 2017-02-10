@@ -1,5 +1,5 @@
 <template>
-  <map-results :center="center" :markers="markers" :zoom="zoom" v-on:loaded="mapLoaded">
+  <map-results :center="center" :markers="markers" :zoom="zoom">
     <map-overlay v-for="o in overlays" :overlay="o" :map="map">
       <div slot="marker">
         {{o.title}}
@@ -23,17 +23,17 @@
       'map-results': MapResults,
       'map-overlay': MapOverlay
     },
+	props: ['offers'],
     data() {
       return {
         center: { lat: 62.323907, lng: -150.109291 },
         markers: [],
-        zoom: 9,
-        map: null
+        zoom: 9
       }
     },
     computed: {
       overlays: function () {
-        return this.$store.state.offers.map((o) => {
+        return this.offers.map((o) => {
           return {
             id: o.id,
             position: o.position,
@@ -44,13 +44,8 @@
           };
         });
       },
-      offers: function () {
-        return this.$store.state.offers
-      }
-    },
-    methods: {
-      mapLoaded: function (map) {
-        this.map = map;
+	  map () {
+        return this.$store.state.map
       }
     },
     created: function () {

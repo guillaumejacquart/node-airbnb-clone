@@ -3,14 +3,14 @@
   <div id="search-container">
     <div class="col col-sm-7 results-wrapper">
       <div class="row" id="search-filters">
-        <div class="col col-sm-2">Filters</div>
-        <div class="col col-sm-10">
+        <div class="col col-sm-12">
           <div class="form-inline">
+			<label>Filters</label>
             <div class="input-group input-group-sm">
-              <el-date-picker size="small" v-model="query_search.from" type="date" change="searchOffers"></el-date-picker>
+              <el-date-picker size="small" v-model="query_search.from" type="date" v-on:change="searchOffers"></el-date-picker>
             </div>
             <div class="input-group input-group-sm">
-              <el-date-picker size="small" v-model="query_search.to" type="date" change="searchOffers"></el-date-picker>
+              <el-date-picker size="small" v-model="query_search.to" type="date" v-on:change="searchOffers"></el-date-picker>
             </div>
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="icon-users"></i></span>
@@ -20,12 +20,12 @@
         </div>
       </div>
       <div class="row" id="search-results">
-        <search-list></search-list>
+        <search-list :offers="offers"></search-list>
       </div>
     </div>
     <div class="col col-sm-5 hidden-sm" id="search-maps">
       <div class="map-wrapper">
-        <search-map></search-map>
+        <search-map :offers="offers"></search-map>
       </div>
     </div>
   </div>
