@@ -19,7 +19,7 @@ Vue.use(VueRouter);
 Vue.use(ElementUI, { locale });
 Vue.use(require('vue-resource'));
 Vue.use(VueGmaps, {
-    key: 'AIzaSyBBGLst2_5aTRSKZRw0RglUN0dX_Qtao60'
+    loadGoogleApi: false
 });
 
 // Component registration
@@ -45,7 +45,7 @@ Vue.http.interceptors.push(function (request, next) {
 auth.loadUser();
 
 /* eslint-disable no-new */
-new Vue({
+window.App = new Vue({
     router: Routes,
     store: store,
     components: {

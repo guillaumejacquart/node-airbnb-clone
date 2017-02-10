@@ -2,10 +2,17 @@
     <div>
         <h3 class="omb_authTitle">My properties</h3>
         <div id="me-properties">
-            <div class="row" v-for="p in properties">
+            <div class="row" v-for="p in properties" v-if="properties.length">
                 <property></property>
             </div>
+            <div class="row" v-if="!properties.length">
+                You have no property yet !
+            </div>
         </div>
+		
+		<div class="new-button">
+			<router-link to="/new-property" class="btn btn-success">Add property now</router-link>
+		</div>
     </div>
 </template>
 
@@ -26,8 +33,8 @@
     methods: {
       getProperties: function () {
         this.successPassword = this.errorPassword = "";
-        this.$http.post('/me/properties', this.user).then((response) => {
-          this.properties = response.properties;
+        this.$http.get('/api/me/properties').then((response) => {
+          this.properties = response.data;
         }, (response) => {
           this.error = response.body.message;
         });

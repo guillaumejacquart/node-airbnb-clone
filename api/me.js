@@ -49,7 +49,11 @@ router.post('/password', passport.authenticate('jwt', { session: false }), funct
 })
 
 router.get('/properties', passport.authenticate('jwt', { session: false }), function (req, res, next) {
-    res.json(req.user);
+    user.getProperties(req.user.id).then(function (properties) {
+		return res.json(properties);
+	}, function(err){
+		return res.status(500).json(err);
+	});
 })
 
 module.exports = router

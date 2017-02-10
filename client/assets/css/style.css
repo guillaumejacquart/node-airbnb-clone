@@ -531,7 +531,6 @@ figure {
 
 .tabulation {
   width: 100%;
-  float: left;
   background: rgba(255, 255, 255, 0.95);
   -webkit-box-shadow: 0px 43px 83px -20px rgba(0, 0, 0, 0.41);
   -moz-box-shadow: 0px 43px 83px -20px rgba(0, 0, 0, 0.41);
@@ -592,9 +591,6 @@ figure {
 
 .tab-content {
   padding: 30px;
-}
-.tab-content .btn {
-  border: 1px solid red !important;
 }
 
 .nav-tabs {
